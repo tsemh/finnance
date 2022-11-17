@@ -286,6 +286,40 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 		
 		return lista;
 	}
+
+	public List<Movimentacao> getAllByConta(ContaUsuario conta){
+
+		List<Movimentacao> lista = new ArrayList<Movimentacao>();
+		ResultSet rs = null;
+
+		try {
+		
+			conexao = ConnectionManager.getInstance().getConnection();
+			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_MOVIMENTACAO "
+											+"WHERE T_FIN_CONTA_USUARIO_CD_USUARIO = ? AND T_FIN_CONTA_USUARIO_CD_CONTA = ? ");
+			
+			pstmt.setInt (1, conta.getCd_usuario());
+			pstmt.setInt (2, conta.getCd_conta());
+
+			rs = pstmt.executeQuery();
+			lista = saveValues(rs);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				pstmt.close();
+				conexao.close();
+			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return lista;
+	}
+
 }
 
 

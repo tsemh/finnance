@@ -73,9 +73,11 @@
 		</div>
 	</div>
 
-	<button class="Values_ButtonHistory Hide" style='${(Msg.size() > 0) ? "display: none;" : ""}'>
-			Histórico
-	</button>
+	<a href="ServletMovimentacaoList" style="text-decoration: none;">
+		<button class="Values_ButtonHistory Hide" style='${(Msg.size() > 0) ? "display: none;" : ""}'>
+				Histórico
+		</button>
+	</a>
 
 	<button id="FC_Btn_Details" class="MainBox_Details">
 		Mais Detalhes
