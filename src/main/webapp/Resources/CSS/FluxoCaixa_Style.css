@@ -5,7 +5,6 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	position: relative;
 	background-color: white;
 	font-family: 'Glory', sans-serif;
 	height: 35vh;
@@ -99,7 +98,7 @@
 .Values_ButtonHistory{
 	border: none;
 	border-radius: 20px;
-	background-image: url(../Images/HistoryButton_Background.png); 
+	background-image: url(../Images/button/ButtonSucces_Background.png); 
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;

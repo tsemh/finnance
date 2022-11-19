@@ -11,12 +11,10 @@ public class Testes {
 
 	public static void main(String[] args) {
 
-		ControllerFluxoCaixa coltroller = new ControllerFluxoCaixa(1,1, new Locale("pt","BR") );
+		String[] teste = "-checked-disabled".split("-");
 
-		List<Movimentacao> movimentacose = coltroller.getMovimentacoes();
-		
-		for (Movimentacao movimentacao : movimentacose) {
-			System.out.println(movimentacao.getVl_movimentacao());
+		for (int i = 0; 0 < 2; i++) {
+			System.out.println(teste[i]);
 		}
 		
 	}

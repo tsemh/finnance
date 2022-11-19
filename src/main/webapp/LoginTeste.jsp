@@ -7,11 +7,11 @@
 <title>login</title>
 </head>
 <body>
-    <form action="ServletHome" method="post">
-        <label for="login">Login</label>
-        <input type="text" name="login">
-        <label for="password">Senha</label>
-        <input type="password" name="password">
+    <form action="ServletHome" method="get">
+        <label for="User">User</label>
+        <input type="number" name="User" required oninvalid="this.setCustomValidity('Campo')">
+        <label for="Account">Account</label>
+        <input type="number" name="Account">
       	<input type="submit" value="login">   
     </form>
 </body>

@@ -17,15 +17,46 @@ public class CategoriaDAOImpl implements CategoriaDAO{
 	PreparedStatement pstmt = null;
 	
 	
+	public List<Categoria> saveValues(ResultSet rs){
+
+		List<Categoria> lista = new ArrayList<Categoria>();
+
+		try {
+			while (rs.next()) {
+				
+				Integer cd_categoria = rs.getInt   ("CD_CATEGORIA");
+				String  nm_categoria = rs.getString("NM_CATEGORIA");
+				Integer cd_usuario   = rs.getInt   ("T_FIN_USUARIO_CD_USUARIO");
+				
+				Categoria categoria = new Categoria(cd_categoria, nm_categoria, cd_usuario);		
+				lista.add(categoria);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				rs.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return lista;
+	}
+	
 	@Override
 	public void insertByID(Categoria categoria){
 		
 		try {		
 			
 			conexao = ConnectionManager.getInstance().getConnection();
-			pstmt = conexao.prepareStatement("INSERT INTO T_FIN_CATEGORIA VALUES(SEQ_FIN_CATEGORIA.NEXTVAL,?)");
+			pstmt = conexao.prepareStatement("INSERT INTO T_FIN_CATEGORIA VALUES(SEQ_FIN_CATEGORIA.NEXTVAL,?,?)");
 			
 			pstmt.setString(1, categoria.getNm_categoria());
+			pstmt.setInt   (2, categoria.getCd_usuario());
 			
 			pstmt.executeUpdate();
 			
@@ -56,21 +87,13 @@ public class CategoriaDAOImpl implements CategoriaDAO{
 			
 			rs = pstmt.executeQuery();
 
-			while (rs.next()) {
-				
-				Integer cd_categoria = rs.getInt("CD_CATEGORIA");
-				String  nm_categoria = rs.getString("NM_CATEGORIA");
-				
-				Categoria categoria = new Categoria(cd_categoria, nm_categoria);		
-				lista.add(categoria);
-			}
-		
+			lista = saveValues(rs);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
 		} finally {
 			try {
-				rs.close();
 				pstmt.close();
 				conexao.close();
 				
@@ -82,6 +105,39 @@ public class CategoriaDAOImpl implements CategoriaDAO{
 		return lista;
 	}
 
+	public List<Categoria> getAllByUser(Integer cd_usuario){
+		
+		List<Categoria> lista = new ArrayList<Categoria>();
+		ResultSet rs = null;
+
+		try {
+			
+			conexao = ConnectionManager.getInstance().getConnection();
+			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_CATEGORIA "
+											+"WHERE T_FIN_USUARIO_CD_USUARIO = ?");
+			
+			pstmt.setInt(1, cd_usuario);
+			
+			rs = pstmt.executeQuery();
+
+			lista = saveValues(rs);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				pstmt.close();
+				conexao.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return lista;
+	}
+	
 	@Override
 	public Categoria getByID(Integer cd_categoria) {
 
@@ -99,9 +155,10 @@ public class CategoriaDAOImpl implements CategoriaDAO{
 
 			if (rs.next()) {
 			
-				String nm_categoria = rs.getString("NM_CATEGORIA");
+				String  nm_categoria = rs.getString("NM_CATEGORIA");
+				Integer cd_usuario	 = rs.getInt   ("T_FIN_USUARIO_CD_USUARIO");
 				
-				categoria = new Categoria(cd_categoria, nm_categoria);
+				categoria = new Categoria(cd_categoria, nm_categoria, cd_usuario);
 			}
 
 		} catch (SQLException e) {

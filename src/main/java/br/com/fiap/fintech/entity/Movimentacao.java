@@ -5,10 +5,10 @@ import java.util.Calendar;
 
 public class Movimentacao {
 	
-	  private Integer   cd_usuario;
-	  private Integer   cd_conta;
+	private Integer   cd_usuario;
+	private Integer   cd_conta;
     private Integer   cd_movimentacao;
-    private Categoria categoria;
+    private Integer   cd_categoria;
     private Calendar  dt_movimentacao;
     private Double    vl_movimentacao;
     private String    tp_movimentacao;
@@ -16,18 +16,18 @@ public class Movimentacao {
 
     public Movimentacao() {}
     
-	public Movimentacao(Integer	  cd_usuario,
-						Integer	  cd_conta,
-						Integer	  cd_movimentacao,
-						Categoria categoria,
-						Calendar  dt_movimentacao,
-						Double 	  vl_movimentacao,
-						String 	  tp_movimentacao) {
+	public Movimentacao(Integer	 cd_usuario,
+						Integer	 cd_conta,
+						Integer	 cd_movimentacao,
+						Integer  cd_categoria,
+						Calendar dt_movimentacao,
+						Double 	 vl_movimentacao,
+						String 	 tp_movimentacao) {
 
-		this.cd_usuario = cd_usuario;
-		this.cd_conta = cd_conta;
+		this.cd_usuario		 = cd_usuario;
+		this.cd_conta 		 = cd_conta;
 		this.cd_movimentacao = cd_movimentacao;
-		this.categoria = categoria;
+		this.cd_categoria 	 = cd_categoria;
 		this.dt_movimentacao = dt_movimentacao;
 		this.vl_movimentacao = vl_movimentacao;
 		this.tp_movimentacao = tp_movimentacao;	
@@ -58,12 +58,12 @@ public class Movimentacao {
 		this.cd_movimentacao = cd_movimentacao;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public Integer getCategoria() {
+		return cd_categoria;
 	}
 
-	public void setCd_categoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setCd_categoria(Integer categoria) {
+		this.cd_categoria = categoria;
 	}
 
 	public Calendar getDt_movimentacao() {
@@ -98,7 +98,7 @@ public class Movimentacao {
 		return "Movimentacao:\n[cd_usuario 	    = "+cd_usuario		  	+",\n"
 					   		 +" cd_conta	    = "+cd_conta		  	+",\n"
 					   		 +" cd_movimentacao = "+cd_movimentacao	  	+",\n"
-					   		 +" categoria	    = "+categoria.toString()+",\n"
+					   		 +" cd_categoria    = "+cd_categoria		+",\n"
 					   		 +" vl_movimentacao = "+vl_movimentacao	  	+",\n"
 					   		 +" tp_movimentacao = "+tp_movimentacao	  	+",\n"
 							 +" dt_movimentacao = "+dt_movtacao.format(dt_movimentacao.getTime())+"]";
