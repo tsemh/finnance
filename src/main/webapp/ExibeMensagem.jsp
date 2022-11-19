@@ -1,7 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" href="./Resources/CSS/MessagesStyle.css">
-
 <section class="Messages">
 
 	<c:forEach var="M" items="${Msg}" varStatus="Status">
@@ -51,5 +49,3 @@
 	</c:forEach>
 
 </section>
-
-<script src="./Resources/JS/MessagesApp.js"></script>

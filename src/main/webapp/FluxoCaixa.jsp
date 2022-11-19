@@ -2,8 +2,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<link rel="stylesheet" href="./Resources/CSS/FluxoCaixa_Style.css">
-
 <section class="MainBox">
 
 	<p class="MainBox_Title">
@@ -88,5 +86,3 @@
 <c:if test="${param.Action != null}">
 	<%@ include file="MovimentacaoTRN.jsp" %>
 </c:if>
-
-<script src="./Resources/JS/FluxoCaixaApp.js"></script>

@@ -42,7 +42,7 @@ public class ServletMovimentacao extends HttpServlet {
 		
 			case "ADD":
 				int cd_categoria = Integer.parseInt(request.getParameter("Categoria"));
-				Calendar date = Calendar.getInstance().setTime( new SimpleDateFormat("yyyy-MM-dd").parse("2022-12-15"));
+//				Calendar date = Calendar.getInstance().setTime( new SimpleDateFormat("yyyy-MM-dd").parse("2022-12-15"));
 				Movimentacao movimentcao = new Movimentacao();
 
 			case "LIST":

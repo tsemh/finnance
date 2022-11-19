@@ -25,10 +25,10 @@
       <main>
           <h2>Transforme sua vida Financeira!</h2>
 
-        <form action="/login/login" method="post">
+        <form action="ServletLogin" method="post">
           <input class="input-field item-form grey" type="email" id="email" name="email" placeholder="E-mail" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" maxLength={30}>
 
-          <input class="input-field item-form grey" type="password" id="password" name="password" placeholder="Senha" maxLength={30} >
+          <input class="input-field item-form grey" type="password" id="password" name="senha" placeholder="Senha" maxLength={30} >
 
           <div class="div-esqueceu-submit">
             <a href="#" class="item-form a-form grey">Esqueceu a senha?</a>

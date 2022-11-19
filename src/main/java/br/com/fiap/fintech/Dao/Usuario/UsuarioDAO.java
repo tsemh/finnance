@@ -5,6 +5,6 @@ import br.com.fiap.fintech.entity.Usuario;
 
 public interface UsuarioDAO {
 
-	boolean validarUsuario(Usuario usuario);
+	Usuario validarUsuario(String email, String senha);
 	
 }
