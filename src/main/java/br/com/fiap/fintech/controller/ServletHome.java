@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.fiap.fintech.Dao.DAOFactory;
 import br.com.fiap.fintech.entity.Movimentacao;
+import br.com.fiap.fintech.entity.Usuario;
 import br.com.fiap.fintech.util.Function;
 
 /**
@@ -44,8 +45,7 @@ public class ServletHome extends HttpServlet {
 		Calendar today 	 = Calendar.getInstance();
 		Locale local_br  = new Locale("pt","BR");
 		List<String> msg = new ArrayList<String>();
-	
-		
+			
 		if (request.getParameter("Action") != null) {
 			
 			request.setAttribute("DataMovimentacao", new SimpleDateFormat("yyyy-MM-dd").format(today.getTime()));
@@ -113,7 +113,7 @@ public class ServletHome extends HttpServlet {
 		}	
 		
 		request.setAttribute("Msg", msg);
-		request.getRequestDispatcher("Home.jsp").forward(request, response);			
+		request.getRequestDispatcher("Home.jsp").forward(request, response);		
 	}
 	
 	/**
