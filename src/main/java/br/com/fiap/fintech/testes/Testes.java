@@ -6,18 +6,17 @@ import java.util.Locale;
 import br.com.fiap.fintech.Dao.DAOFactory;
 import br.com.fiap.fintech.controller.ControllerFluxoCaixa;
 import br.com.fiap.fintech.entity.Movimentacao;
+import br.com.fiap.fintech.util.CriptografiaUtils;
 
 public class Testes {
 
-	public static void main(String[] args) {
-
-		ControllerFluxoCaixa coltroller = new ControllerFluxoCaixa(1,1, new Locale("pt","BR") );
-
-		List<Movimentacao> movimentacose = coltroller.getMovimentacoes();
-		
-		for (Movimentacao movimentacao : movimentacose) {
-			System.out.println(movimentacao.getVl_movimentacao());
-		}
+    public static void main(String[] args) {
+      try {
+        System.out.println(CriptografiaUtils.criptografar("123456"));
+        System.out.println(CriptografiaUtils.criptografar("123456"));
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
 		
 	}
 
