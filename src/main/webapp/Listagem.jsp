@@ -69,6 +69,11 @@
 				
 			</table>
 		</section>
+		
+		<c:if test="${Title.toUpperCase() == 'MOVIMENTAÇÕES'}">
+			<%@ include file="MovimentacaoTRN.jsp" %>
+		</c:if>
+		
 	</main>
 
 </body>

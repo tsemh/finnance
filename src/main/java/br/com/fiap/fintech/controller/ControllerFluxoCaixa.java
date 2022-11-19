@@ -16,22 +16,23 @@ public class ControllerFluxoCaixa {
 	private Integer cd_conta;
 
 	Locale 	 local;
-	Calendar today = Calendar.getInstance();
+	Calendar date;
 
 	
 	public ControllerFluxoCaixa() {}
 	
-	public ControllerFluxoCaixa(Integer cd_usuario, Integer cd_conta, Locale local) {
+	public ControllerFluxoCaixa(Integer cd_usuario, Integer cd_conta, Locale local, Calendar date) {
 		
 		this.cd_usuario = cd_usuario;
 		this.cd_conta   = cd_conta;
 		this.local      = local;
+		this.date		= date;
 	}
 	
 		
 	
 	public String getMonth() {
-		return Function.DateToMonthInFull(today.getTime(), local);
+		return Function.DateToMonthInFull(date.getTime(), local);
 	}
 	
 	
@@ -49,12 +50,12 @@ public class ControllerFluxoCaixa {
 	public List<Movimentacao> getMovimentacoes() {
 		
 		Calendar date_from = Calendar.getInstance();
-		date_from.add(Calendar.DAY_OF_MONTH, -(today.get(Calendar.DAY_OF_MONTH)-1));
-		date_from.add(Calendar.HOUR_OF_DAY, -today.get(Calendar.HOUR_OF_DAY));
-		date_from.add(Calendar.MINUTE, -today.get(Calendar.MINUTE));
-		date_from.add(Calendar.SECOND, -today.get(Calendar.SECOND));
+		date_from.add(Calendar.DAY_OF_MONTH, -(date.get(Calendar.DAY_OF_MONTH)-1));
+		date_from.add(Calendar.HOUR_OF_DAY, -date.get(Calendar.HOUR_OF_DAY));
+		date_from.add(Calendar.MINUTE, -date.get(Calendar.MINUTE));
+		date_from.add(Calendar.SECOND, -date.get(Calendar.SECOND));
 
-		return DAOFactory.getMovimentacaoDAO().getAll_ContaByDate(getContaUsuario(), date_from.getTime(), today.getTime());
+		return DAOFactory.getMovimentacaoDAO().getAll_ContaByDate(getContaUsuario(), date_from.getTime(), date.getTime());
 	}
 	
 	

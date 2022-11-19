@@ -10,10 +10,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
-import br.com.fiap.fintech.Dao.DAOFactory;
-import br.com.fiap.fintech.Dao.Categoria.CategoriaDAO;
-
-import br.com.fiap.fintech.entity.Categoria;
 import br.com.fiap.fintech.entity.ContaUsuario;
 import br.com.fiap.fintech.entity.Movimentacao;
 
@@ -28,17 +24,16 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 	private List<Movimentacao> saveValues(ResultSet rs){
 
 		List<Movimentacao> lista = new ArrayList<Movimentacao>();
-		CategoriaDAO categoriadao = DAOFactory.getCategoriaDAO();
 
 		try {
 			while (rs.next()) {
 				
-				Integer   cd_usuario 	   = rs.getInt("T_FIN_CONTA_USUARIO_CD_USUARIO");
-				Integer   cd_conta 		   = rs.getInt("T_FIN_CONTA_USUARIO_CD_CONTA");
-				Integer   cd_movimentacao  = rs.getInt("CD_MOVIMENTACAO");
-				Categoria categoria 	   = categoriadao.getByID(rs.getInt("T_FIN_CATEGORIA_CD_CATEGORIA"));
-				Double    vl_moviementacao = rs.getDouble("VL_MOVIMENTACAO");
-				String    tp_moviementacao = rs.getString("TP_MOVIMENTACAO");
+				Integer cd_usuario 	   	 = rs.getInt   ("T_FIN_CONTA_USUARIO_CD_USUARIO");
+				Integer cd_conta 		 = rs.getInt   ("T_FIN_CONTA_USUARIO_CD_CONTA");
+				Integer cd_movimentacao  = rs.getInt   ("CD_MOVIMENTACAO");
+				Integer cd_categoria 	 = rs.getInt   ("T_FIN_CATEGORIA_CD_CATEGORIA");
+				Double  vl_moviementacao = rs.getDouble("VL_MOVIMENTACAO");
+				String  tp_moviementacao = rs.getString("TP_MOVIMENTACAO");
 	
 				java.sql.Date dt_movtacao  = rs.getDate("DT_MOVIMENTACAO");
 				Calendar  dt_movimentacao  = Calendar.getInstance();
@@ -47,7 +42,7 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 				Movimentacao movimentacao = new Movimentacao(cd_usuario,
 															 cd_conta,
 															 cd_movimentacao,
-															 categoria,
+															 cd_categoria,
 															 dt_movimentacao,
 															 vl_moviementacao,
 															 tp_moviementacao);
@@ -80,7 +75,7 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 			
 			pstmt.setInt   (1, movimentacao.getCd_usuario());
 			pstmt.setInt   (2, movimentacao.getCd_conta());
-			pstmt.setInt   (3, movimentacao.getCategoria().getCd_categoria());
+			pstmt.setInt   (3, movimentacao.getCategoria());
 			pstmt.setDate  (4, new java.sql.Date(movimentacao.getDt_movimentacao().getTimeInMillis()));
 			pstmt.setDouble(5, movimentacao.getVl_movimentacao());
 			pstmt.setString(6, movimentacao.getTp_movimentacao());
@@ -135,7 +130,6 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 	public Movimentacao getByID(Integer cd_movimentacao, ContaUsuario conta) {
 
 		Movimentacao movimentacao = null;
-		CategoriaDAO categoriadao = DAOFactory.getCategoriaDAO();
 		ResultSet rs = null;
 		
 		try {
@@ -152,9 +146,9 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 
 			if (rs.next()) {
 			
-				Categoria categoria 	   = categoriadao.getByID(rs.getInt("T_FIN_CATEGORIA_CD_CATEGORIA"));
-				Double    vl_moviementacao = rs.getDouble("VL_MOVIMENTACAO");
-				String    tp_moviementacao = rs.getString("TP_MOVIMENTACAO");
+				Integer cd_categoria 	 = rs.getInt   ("T_FIN_CATEGORIA_CD_CATEGORIA");
+				Double  vl_moviementacao = rs.getDouble("VL_MOVIMENTACAO");
+				String  tp_moviementacao = rs.getString("TP_MOVIMENTACAO");
 
 				java.sql.Date dt_movtacao  = rs.getDate("DT_MOVIMENTACAO");
 				Calendar  dt_movimentacao  = Calendar.getInstance();
@@ -163,7 +157,7 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 				movimentacao = new Movimentacao(conta.getCd_usuario(),
 												conta.getCd_conta(),
 												cd_movimentacao,
-												categoria,
+												cd_categoria,
 												dt_movimentacao,
 												vl_moviementacao,
 												tp_moviementacao);
@@ -198,7 +192,7 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 																		  +"TP_MOVIMENTACAO    = ? "
 											+"WHERE T_FIN_USUARIO_CD_USUARIO = ? AND T_FIN_CONTA_USUARIO_CD_CONTA = ? AND CD_MOVIMENTACAO = ?");
 			
-			pstmt.setInt   (1, movimentacao.getCategoria().getCd_categoria());
+			pstmt.setInt   (1, movimentacao.getCategoria());
 			pstmt.setDate  (2, new java.sql.Date(movimentacao.getDt_movimentacao().getTimeInMillis()));
 			pstmt.setDouble(3, movimentacao.getVl_movimentacao());
 			pstmt.setString(4, movimentacao.getTp_movimentacao());

@@ -11,6 +11,8 @@ public interface CategoriaDAO {
 	
 	List<Categoria> getAll();
 	
+	List<Categoria> getAllByUser(Integer cd_usuario);
+	
 	Categoria getByID(Integer cd_categoria);
 	
 	void updateByID (Categoria categoria) throws DBException;

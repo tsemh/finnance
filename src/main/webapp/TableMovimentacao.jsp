@@ -17,7 +17,7 @@
 
 		<td style="text-align: center;"><fmt:formatDate pattern="dd/MM/yyyy" value="${Movimentacao.dt_movimentacao.getTime()}" /></td>
 	
-		<td style="text-align: center;"><i class="fa-solid fa-pencil" style="padding: 10px; cursor: pointer;"></i></td>
+		<td style="text-align: center;"><i class="fa-solid fa-pencil" style="padding: 10px; cursor: pointer;" onclick="OpenMovimentacaoTRN_Popup()"></i></td>
 		<td style="text-align: center;"><i class="fa-solid fa-trash-can" style="padding: 10px; cursor: pointer;"></i></td>
 	</tr>
 </c:forEach>
