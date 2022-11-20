@@ -62,7 +62,7 @@ public class InvestimentoDAOImpl implements InvestimentoDAO{
 		try {
 			
 			conexao = ConnectionManager.getInstance().getConnection();
-			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_TIPO");
+			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_INVESTIMENTO");
 						
 			rs = pstmt.executeQuery();
 			
@@ -116,7 +116,7 @@ public class InvestimentoDAOImpl implements InvestimentoDAO{
 		try {
 			
 			conexao = ConnectionManager.getInstance().getConnection();
-			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_TIPO WHERE CD_INVESTIMENTO = ?");
+			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_INVESTIMENTO WHERE CD_INVESTIMENTO = ?");
 			
 			pstmt.setInt(1, cd_investimento);
 						
