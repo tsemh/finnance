@@ -65,13 +65,13 @@
 	
 		<div class="Hide" style='${(Msg.size() > 0) ? "display: none;" : ""}'>
 			<div class="Movement_Add">
-				<button class="Green" onclick="MovimentacaoINS(${param.User}, ${param.Account}, 'ReceitaINS')">+</button>
-				<button class="Red"   onclick="MovimentacaoINS(${param.User}, ${param.Account}, 'DespesaINS')">+</button>
+				<button class="Green" onclick='CallMovimentacaoTRN("INSR")'>+</button>
+				<button class="Red"   onclick='CallMovimentacaoTRN("INSD")'>+</button>
 			</div>
 		</div>
 	</div>
 
-	<a href="ServletMovimentacao?User=${param.User}&Account=${param.Account}&Action=List" style="text-decoration: none;">
+	<a href="ServletMovimentacao?User=${param.User}&Account=${param.Account}&Action=Show" style="text-decoration: none;">
 		<button class="Values_ButtonHistory Hide" style='${(Msg.size() > 0) ? "display: none;" : ""}'>
 				Histórico
 		</button>
@@ -83,6 +83,6 @@
 
 </section>
 
-<c:if test="${param.Action != null}">
+<c:if test='${param.Action.toUpperCase().trim() != "SHOW"}'>
 	<%@ include file="MovimentacaoTRN.jsp" %>
 </c:if>

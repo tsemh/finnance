@@ -42,7 +42,3 @@ Btn_Deteils.addEventListener("click", ()=>{
     }
 
 })
-
-function MovimentacaoINS(user, account, type){
-	location.href = "ServletHome?User="+user+"&Account="+account+"&Action="+type;
-}

@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.fiap.fintech.Dao.DAOFactory;
 import br.com.fiap.fintech.Dao.Usuario.UsuarioDAO;
@@ -51,7 +50,7 @@ public class ServletLogin extends HttpServlet {
 				
 				request.getSession().setAttribute("UserName", usuario.getNm_usuario());
 				request.getSession().setAttribute("CurrentPage", "Home");
-				response.sendRedirect("ServletHome?User="+cd_usuario+"&Account="+cd_conta);
+				response.sendRedirect("ServletHome?User="+cd_usuario+"&Account="+cd_conta+"&Action=Show");
 				
 			} else {
 				

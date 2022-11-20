@@ -11,11 +11,12 @@
 		
   	<link rel="stylesheet" href="./Resources/CSS/reset.css">
 	<link rel="stylesheet" href="./Resources/CSS/MessagesStyle.css">
-	<link rel="stylesheet" href="./Resources/CSS/FluxoCaixa_Style.css">
-    <link rel="stylesheet" href="./Resources/CSS/investimentos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="./Resources/CSS/investimentos.css">-->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 	<link rel="stylesheet" href="./Resources/CSS/TopBarStyle.css">
 	<link rel="stylesheet" href="./Resources/CSS/SidebarStyle.css">
+	<link rel="stylesheet" href="./Resources/CSS/FluxoCaixa_Style.css">
+	<link rel="stylesheet" href="./Resources/CSS/MovimentacaoTRN_Style.css">
 	
 	<script src="https://kit.fontawesome.com/7e3ab3f2af.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -42,6 +43,7 @@
 <script type="text/javascript" src="./Resources/JS/FluxoCaixaApp.js"></script>
 <script type="text/javascript" src="./Resources/JS/Top&SideBarApp.js"></script>
 <script type="text/javascript" src="./Resources/JS/InvestimentoApp.js"></script>
+<script type="text/javascript" src="./Resources/JS/MovimentacaoPopupApp.js"></script>
 
 </body>
 </html>

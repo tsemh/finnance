@@ -13,7 +13,7 @@ public interface MovimentacaoDAO {
 
 	List<Movimentacao> getAll();
 	
-	Movimentacao getByID(Integer cd_movimentacao, ContaUsuario conta);
+	Movimentacao getByID(Integer cd_usuario, Integer cd_conta, Integer cd_movimentacao);
 	
 	void updateByID (Movimentacao movimentacao) throws DBException;
 	
@@ -21,6 +21,6 @@ public interface MovimentacaoDAO {
 	
 	List<Movimentacao> getAll_ContaByDate(ContaUsuario conta, Date date_from, Date date_to);
 	
-	List<Movimentacao> getAllByConta(ContaUsuario conta);
+	List<Movimentacao> getAllByConta(Integer cd_usuario, Integer cd_conta);
 
 }
