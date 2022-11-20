@@ -41,8 +41,6 @@
           <a class="button-alter-page" href="./NovaConta.jsp"> Nova Conta </a>
         </div>
       </main>
-
-      <script src="https://accounts.google.com/gsi/client" async defer></script>
   </body>
 
   </html>
