@@ -14,6 +14,8 @@
 
   	<link rel="stylesheet" href="./Resources/CSS/reset.css">
 	<link rel="stylesheet" href="./Resources/CSS/ListagemStyle.css">
+	<link rel="stylesheet" href="./Resources/CSS/MovimentacaoTRN_Style.css">
+
 	<script src="https://kit.fontawesome.com/7e3ab3f2af.js" crossorigin="anonymous"></script>
 
 	<title>Finnance - ${Title}</title>
@@ -70,11 +72,13 @@
 			</table>
 		</section>
 		
-		<c:if test="${Title.toUpperCase() == 'MOVIMENTAÇÕES'}">
+		<c:if test='${param.Action.toUpperCase().trim() != "SHOW"}'>
 			<%@ include file="MovimentacaoTRN.jsp" %>
 		</c:if>
 		
 	</main>
+
+<script type="text/javascript" src="./Resources/JS/MovimentacaoPopupApp.js"></script>
 
 </body>
 </html>

@@ -2,8 +2,9 @@
 
 .Messages{
 	position: fixed;
+	top: 0px;
 	right: 20px;
-	z-index: 900;
+	z-index: 999;
 }
 
 .MainBoxMessage{
