@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="./Resources/CSS/SidebarStyle.css">
 	<link rel="stylesheet" href="./Resources/CSS/FluxoCaixa_Style.css">
 	<link rel="stylesheet" href="./Resources/CSS/MovimentacaoTRN_Style.css">
+  <link rel="stylesheet" href="./Resources/CSS/limitacao.css">
 	
 	<script src="https://kit.fontawesome.com/7e3ab3f2af.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
