@@ -3,7 +3,22 @@
     --bg: black;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Glory:wght@100;200;300;400;500;600;700;800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+      font-family: 'Glory';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 28px;
+text-align: center;
+}
+
 
 .card-holder{
 	display: flex;
@@ -16,8 +31,9 @@
   color: black;
   margin: 2rem auto;
   box-shadow: 0 0 2rem rgba(0,0,0,0.1);
-  border-radius: 50px; 
-  border: none;
+ 
+  
+
 }
 
 .grafico{
@@ -48,7 +64,27 @@
 .card-contents{
   padding: 1rem;
 }
+<<<<<<< HEAD
 
+=======
+
+h1{
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+p{
+  margin-bottom: 1rem;
+  color: #000000;
+  font-family: 'Glory';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+
+}
+
+>>>>>>> 7c89ff9d3a29b777a8c6a778ba9b6d0566297063
 .card__read-more{
   display: block;
   opacity: 0;
@@ -63,6 +99,7 @@
 }
 
 .read-more-btn{
+<<<<<<< HEAD
 	display: inline-block;
 	color: black;
 	background-color: white;
@@ -74,6 +111,18 @@
 	position: absolute;
 	bottom: 0px;
 	left: 115px;
+=======
+  display: inline-block;
+  color: black;
+  background-color: white;
+  padding: 0.6rem 1.5rem;
+  font-size: 1em;
+  position: relative;
+  z-index: 1;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius:50px;
+>>>>>>> 7c89ff9d3a29b777a8c6a778ba9b6d0566297063
 }
 
 

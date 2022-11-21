@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.fiap.fintech.Dao.DAOFactory;
+import br.com.fiap.fintech.Dao.Aplicacao.AplicacaoDAO;
+import br.com.fiap.fintech.Dao.Investimento.InvestimentoDAO;
+import br.com.fiap.fintech.entity.Aplicacao;
+import br.com.fiap.fintech.entity.Investimento;
 import br.com.fiap.fintech.entity.Movimentacao;
 import br.com.fiap.fintech.util.Function;
 
@@ -22,7 +27,16 @@ import br.com.fiap.fintech.util.Function;
 @WebServlet("/ServletHome")
 public class ServletHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+	private InvestimentoDAO dao;
+	private AplicacaoDAO ap;
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		dao = DAOFactory.getInvestimentoDAO();
+		ap = DAOFactory.getAplicacapDAO();
+	}
+  
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -44,6 +58,9 @@ public class ServletHome extends HttpServlet {
 		List<String> msg = new ArrayList<String>();
 			
 		if (request.getParameter("Action").toUpperCase().trim().equals("SHOW")) {
+			
+			listar(request,response);
+			
 
 			ControllerFluxoCaixa controller_fluxo = new ControllerFluxoCaixa(cd_usuario, cd_conta, local_br, today);
 			
@@ -99,7 +116,7 @@ public class ServletHome extends HttpServlet {
 				
 				System.out.println(e);
 				request.setAttribute("ValuesError_FC", "--");
-				msg.add("E"+"Falha ao Obter os Dados do Fluxo de Caixa. Usuário / Conta Inexistente ou Falha na sua Conexão.");
+				msg.add("E"+"Falha ao Obter os Dados do Fluxo de Caixa. Usuï¿½rio / Conta Inexistente ou Falha na sua Conexï¿½o.");
 			}
 						
 		} else {
@@ -112,6 +129,16 @@ public class ServletHome extends HttpServlet {
 		request.setAttribute("Msg", msg);
 		request.getRequestDispatcher("Home.jsp").forward(request, response);		
 	}
+	
+	
+	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Investimento> lista = dao.getAll();
+		request.setAttribute("investimentos", lista);
+		List<Aplicacao> list = ap.getAll();
+		request.setAttribute("aplicacoes", list);
+		
+	}
+	
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
