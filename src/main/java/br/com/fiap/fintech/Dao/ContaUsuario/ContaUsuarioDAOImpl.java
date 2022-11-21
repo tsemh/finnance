@@ -21,7 +21,7 @@ public class ContaUsuarioDAOImpl implements ContaUsuarioDAO{
 		try {
 
 			conexao = ConnectionManager.getInstance().getConnection();
-			pstmt = conexao.prepareStatement("INSERT INTO T_FIN_CONTA_USUARIO VALUES(SEQ_FIN_CONTA.NEXTVAL,?,?,?,?,?)");
+			pstmt = conexao.prepareStatement("INSERT INTO T_FIN_CONTA_USUARIO VALUES(1,?,?,?,?,?)");
 
 			pstmt.setInt   (1, contausuario.getCd_usuario());
 			pstmt.setString(2, contausuario.getTp_conta());

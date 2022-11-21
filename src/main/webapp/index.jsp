@@ -2,7 +2,7 @@
 <section id="centraliza">
 	<div class="card-holder">
 
-		<div class="card">
+		<div class="MainBox" style="position: relative;">
 
 			<div class="card-contents">
 

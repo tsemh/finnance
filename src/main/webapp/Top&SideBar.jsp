@@ -19,7 +19,7 @@
 	<div class="headertitle">
 
 		<span>Olá,</span>
-		${UserName}
+		<p class="UserName">${UserName}</p>
 		<span class="headerlabel">${CurrentPage}</span>
 	
 	</div>

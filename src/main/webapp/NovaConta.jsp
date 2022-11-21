@@ -40,7 +40,7 @@
           </form>
 
           <div class="box-alter-page">
-            <h3 class="grey">Jï¿½ possui conta?</h3>
+            <h3 class="grey">Já possui conta?</h3>
             <a class="button-alter-page" href="./login.jsp"> Fazer Login </a>
           </div>
         </div>
