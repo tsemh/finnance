@@ -18,8 +18,13 @@
 
 	<div class="headertitle">
 
+<<<<<<< HEAD
+		<span>Olá,</span>
+		<p class="UserName">${UserName}</p>
+=======
 		<span>Olï¿½,</span>
 		${UserName}
+>>>>>>> 7c89ff9d3a29b777a8c6a778ba9b6d0566297063
 		<span class="headerlabel">${CurrentPage}</span>
 	
 	</div>

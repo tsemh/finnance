@@ -28,6 +28,10 @@ header {
 	color: #000;
 }
 
+.UserName{
+	text-transform: capitalize;
+}
+
 .headerlabel {
 	font-family: 'Glory';
 	font-style: normal;

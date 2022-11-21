@@ -19,6 +19,8 @@ public interface UsuarioDAO {
 
 	void deleteByID(Integer cd_usuarioa) throws DBException;
 	
+	int getLastCode() throws DBException;
+	
 }
 
 

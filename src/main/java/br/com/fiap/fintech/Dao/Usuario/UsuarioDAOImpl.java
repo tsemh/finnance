@@ -68,14 +68,14 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		try {
 
 			conexao = ConnectionManager.getInstance().getConnection();
-			pstmt = conexao.prepareStatement("INSERT INTO T_FIN_USUARIO VALUES(SEQ_FIN_CONTA.NEXTVAL,?,?,?,?,?)");
+			pstmt = conexao.prepareStatement("INSERT INTO T_FIN_USUARIO VALUES(SEQ_FIN_USER.NEXTVAL,?,?,?,?)");
 
-			pstmt.setInt   (1, usuario.getCd_usuario());
-			pstmt.setString(2, usuario.getEmail());
-			pstmt.setString(3, usuario.getSenha());
-			pstmt.setString(4, usuario.getNm_usuario());
+			pstmt.setString(1, usuario.getEmail());
+			pstmt.setString(2, usuario.getSenha());
+			pstmt.setString(3, usuario.getNm_usuario());
+			pstmt.setString(4, "enderço");
 	        
-	        pstmt .executeUpdate();
+	        pstmt.executeUpdate();
 	        
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -228,4 +228,39 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		}
 	}
 
+	public int getLastCode() {
+
+		List<Usuario> lista = new ArrayList<Usuario>();
+		ResultSet rs = null;
+		Integer cd_usuario = 0;
+
+		try {
+			
+			conexao = ConnectionManager.getInstance().getConnection();
+			pstmt = conexao.prepareStatement("SELECT * FROM (SELECT CD_USUARIO FROM T_FIN_USUARIO ORDER BY CD_USUARIO desc ) WHERE rownum = 1");
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				cd_usuario = rs.getInt("CD_USUARIO");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conexao.close();
+		
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return cd_usuario;
+}
+	
 }

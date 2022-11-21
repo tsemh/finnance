@@ -5,8 +5,12 @@ const btn = document
 const text = document
     .querySelector('.card__read-more');
 
+<<<<<<< HEAD
+		<div class="MainBox" style="position: relative;">
+=======
 const cardHolder = document
     .querySelector('.card-holder');
+>>>>>>> 7c89ff9d3a29b777a8c6a778ba9b6d0566297063
 
 cardHolder
     .addEventListener('click', e => {

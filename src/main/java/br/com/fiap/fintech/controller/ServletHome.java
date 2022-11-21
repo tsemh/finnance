@@ -113,7 +113,8 @@ public class ServletHome extends HttpServlet {
 				request.setAttribute("Remaining_Des", controller_fluxo.checkRemaining(count_des));
 				
 			} catch(Exception e) {
-				e.printStackTrace();
+				
+				System.out.println(e);
 				request.setAttribute("ValuesError_FC", "--");
 				msg.add("E"+"Falha ao Obter os Dados do Fluxo de Caixa. Usu�rio / Conta Inexistente ou Falha na sua Conex�o.");
 			}
