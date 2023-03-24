@@ -33,7 +33,7 @@ public class ControllerMovimentacaoTRN {
 		
 		if (mode.substring(0,3).toUpperCase().trim().equals("INS")) {
 			
-			this.setTitle_mode("Incluí");
+			this.setTitle_mode("Inclui");
 			this.setDt_movimentacao(new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()));
 		
 		} else {

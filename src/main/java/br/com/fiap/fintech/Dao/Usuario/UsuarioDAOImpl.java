@@ -8,11 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.fiap.fintech.entity.ContaUsuario;
 import br.com.fiap.fintech.entity.Usuario;
-import br.com.fiap.fintech.Dao.Usuario.UsuarioDAO;
 import br.com.fiap.fintech.jdbc.ConnectionManager;
-import br.com.fiap.fintech.util.CriptografiaUtils;
 
 public class UsuarioDAOImpl implements UsuarioDAO{
 	
@@ -23,8 +20,6 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	@Override
 	public Usuario validarUsuario(String email, String senha) {
-
-
 
 		try {
 			
@@ -73,7 +68,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			pstmt.setString(1, usuario.getEmail());
 			pstmt.setString(2, usuario.getSenha());
 			pstmt.setString(3, usuario.getNm_usuario());
-			pstmt.setString(4, "enderço");
+			pstmt.setString(4, "");
 	        
 	        pstmt.executeUpdate();
 	        
@@ -139,8 +134,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		try {
 			
 			conexao = ConnectionManager.getInstance().getConnection();
-			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_CONTA_USUARIO "
-											+"WHERE T_FIN_USUARIO_CD_USUARIO = ?");
+			pstmt = conexao.prepareStatement("SELECT * FROM T_FIN_USUARIO "
+											+"WHERE CD_USUARIO = ?");
 			
 			pstmt.setInt(1, cd_usuario);
 			
@@ -148,12 +143,12 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 			if (rs.next()) {
 				
-				cd_usuario        = rs.getInt("CD_USUARIO");
+				cd_usuario        = rs.getInt	("CD_USUARIO");
 				String ds_email   = rs.getString("DS_EMAIL");
 				String nm_usuario = rs.getString("NM_USUARIO");
 				String ds_senha   = rs.getString("DS_SENHA");
 				
-				usuario = new Usuario(cd_usuario,ds_email,nm_usuario,ds_senha);
+				usuario = new Usuario(cd_usuario,ds_email,ds_senha,nm_usuario);
 			}
 
 		} catch (SQLException e) {
@@ -230,7 +225,6 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 	public int getLastCode() {
 
-		List<Usuario> lista = new ArrayList<Usuario>();
 		ResultSet rs = null;
 		Integer cd_usuario = 0;
 

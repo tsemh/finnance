@@ -17,7 +17,7 @@ public interface MovimentacaoDAO {
 	
 	void updateByID (Movimentacao movimentacao) throws DBException;
 	
-	void deleteByID (Integer cd_movimentacao, ContaUsuario conta) throws DBException;
+	void deleteByID (Integer cd_usuario, Integer cd_conta, Integer cd_movimentacao) throws DBException;
 	
 	List<Movimentacao> getAll_ContaByDate(ContaUsuario conta, Date date_from, Date date_to);
 	

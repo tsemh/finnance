@@ -1,3 +1,6 @@
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <script>
 const btn = document
 .querySelector('.read-more-btn');
@@ -5,12 +8,8 @@ const btn = document
 const text = document
     .querySelector('.card__read-more');
 
-<<<<<<< HEAD
-		<div class="MainBox" style="position: relative;">
-=======
 const cardHolder = document
     .querySelector('.card-holder');
->>>>>>> 7c89ff9d3a29b777a8c6a778ba9b6d0566297063
 
 cardHolder
     .addEventListener('click', e => {
@@ -31,81 +30,83 @@ cardHolder
 }); 
 </script>
 
- <div class="card-holder">
+<div class="card-holder">
 
-    <div class="card" style="border-radius:50px; border:0;" >
-
-      
-
-      <div class="card-contents">
-        <h1 class="card__name">Investimentos</h1>
+	<div class="card" style="border-radius: 50px; border: 0;">
 
 
-        <p>
 
-             <div class="row">                
-                      <div class="grafico">
-                           <div id="grafico"></div>
-                       </div>
-                       <div class="col" id="label">
-                           <label id="legenda">Rendimento: 
-                        <div> 18% a.a </div>
-                         </label>
-                        </div>
-                        <div class="col sm-6">
-                        <label id="legenda">Carteira Rendendo:
-                         <div>R$156.2</div>
-                         </label>
-                        </div>
-              </div>
+		<div class="card-contents">
+			<h1 class="card__name">Investimentos</h1>
 
-          
 
-          <span class="card__read-more">
-          <div class="row">
-          	<c:forEach items="${investimentos}" var="i">
-						<c:set var = "codInv" value="${i.cd_investimento}"/>
-						
-						<c:forEach items="${aplicacoes}" var="a">
-						<c:if test="${codInv == a.investimento.cd_investimento}" />
-						<c:set var = "totalInv" value="${totalInv+ a.vl_aplicacao}"/>	
-						</c:forEach>
-					<c:set var = "codInv" value="0"/>
-							<div class="col-6">${i.ds_investimento}
-								<div class="vlr">${totalInv}</div>
-							</div>
-							<div class="col-6">
-								Carteira Rendendo:
-								<div class="vlr">${i.pr_rendimento_a_a}</div>
-							</div>
-						
-						</c:forEach>
+			<p>
+			<div class="row">
+				<div class="grafico">
+					<div id="grafico"></div>
+				</div>
+				<div class="col" id="label">
+					<label id="legenda">Rendimento:
+						<div>18% a.a</div>
+					</label>
+				</div>
+				<div class="col sm-6">
+					<label id="legenda">Carteira Rendendo:
+						<div>R$156.2</div>
+					</label>
+				</div>
 			</div>
-                                                                         
-                                        <div id="centraliza2">
-                                          <div class="row">
-                                            <div class="c4">
-                                              <a href="AddInvestimentoJSP.jsp"><img type="image" src="./Resources/Images/download.png"  height="55" width="70" id="add"/></a>
-                                            </div> 
-                                          </div>
-                                        <div class="row">
-                                      <a href="historico.html"><button id="historico">Histórico</button></a>
-                                       </div> 
-                                    </div>
-          </span>
-        </p>
-
-        <p class="read-more-btn">Mais Detalhes</p>
-
-      </div>
 
 
-    </div>
 
-    
+			<span class="card__read-more">
+				<div class="row">
+					<c:forEach var="i" items="${investimentos}">
+						<c:set var="totalInv" value="0" />
+						<c:set var="codInv" value="${i.cd_investimento}" />
+						<c:forEach var="a" items="${aplicacoes}">
+							<c:if test="${codInv == a.investimento.cd_investimento}">
+								<c:set var="totalInv" value="${totalInv+ a.vl_aplicacao}" />
+							</c:if>
+						</c:forEach>
+						<c:set var="codInv" value="0" />
+						<div class="col-6">${i.ds_investimento}
+							<div class="vlr">${totalInv}</div>
+						</div>
+						<div class="col-6">
+							Carteira Rendendo:
+							<div class="vlr">${i.pr_rendimento_a_a}</div>
+						</div>
 
-    
+					</c:forEach>
+				</div>
 
-  </div>
+				<div id="centraliza2">
+					<div class="row">
+						<div class="c4">
+							<a onclick="CallNaoDisponivel()"><img type="image"
+								src="./Resources/Images/download.png" height="55" width="70"
+								id="add" /></a>
+						</div>
+					</div>
+					<div class="row">
+						<a onclick="CallNaoDisponivel()"><button id="historico">Histórico</button></a>
+					</div>
+				</div>
+			</span>
+			</p>
+
+			<p class="read-more-btn">Mais Detalhes</p>
+
+		</div>
+
+
+	</div>
+
+
+
+
+
+</div>
 
 

@@ -49,3 +49,6 @@
 	</c:forEach>
 
 </section>
+
+<c:set var="Msg" value="${Msg.clear()}"/>
+

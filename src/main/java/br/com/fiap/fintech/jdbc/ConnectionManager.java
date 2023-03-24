@@ -24,7 +24,7 @@ public class ConnectionManager {
     	try {	
     		
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL","RM93383","020803");
+			conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL","name","password");
 			
 		} catch (Exception e) {
 			System.err.println("Erro ao conectar ao Banco de Dados!");

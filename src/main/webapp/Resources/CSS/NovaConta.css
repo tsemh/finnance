@@ -39,5 +39,10 @@ h1 {
 }
 .input-submit {
   padding: 0.3em;
+  border: none;
   background-image: url(../Images/button/buttonCad.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 }

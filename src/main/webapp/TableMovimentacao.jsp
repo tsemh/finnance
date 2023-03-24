@@ -15,7 +15,7 @@
 		
 		<td><fmt:formatNumber value="${Movimentacao.vl_movimentacao}" type="currency" /></td>
 
-		<td style="text-align: center;"><fmt:formatDate pattern="dd/MM/yyyy" value="${Movimentacao.dt_movimentacao.getTime()}" /></td>
+		<td style="text-align: center;"><fmt:formatDate pattern="dd/MM/yyyy" value="${Movimentacao.dt_movimentacao.getTime()}"/></td>
 	
 		<td style="text-align: center;"><i class="fa-solid fa-pencil" style="padding: 10px; cursor: pointer;" onclick='CallMovimentacaoTRN("UPD${Movimentacao.cd_movimentacao}")'></i></td>
 		<td style="text-align: center;"><i class="fa-solid fa-trash-can" style="padding: 10px; cursor: pointer;"></i></td>

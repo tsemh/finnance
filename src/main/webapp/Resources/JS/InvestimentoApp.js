@@ -11,8 +11,8 @@
 
         var options = {
          
-          pieHole: 0.6,
-          width: 500,
+          pieHole: 0.8,
+          width: 300,
 
           colors: ['#4D84B6', '#4EEAE0', '#94FCCA'],
           

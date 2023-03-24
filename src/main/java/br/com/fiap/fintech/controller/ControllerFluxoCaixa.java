@@ -18,9 +18,6 @@ public class ControllerFluxoCaixa {
 	Locale 	 local;
 	Calendar date;
 
-	
-	public ControllerFluxoCaixa() {}
-	
 	public ControllerFluxoCaixa(Integer cd_usuario, Integer cd_conta, Locale local, Calendar date) {
 		
 		this.cd_usuario = cd_usuario;
@@ -28,7 +25,6 @@ public class ControllerFluxoCaixa {
 		this.local      = local;
 		this.date		= date;
 	}
-	
 		
 	
 	public String getMonth() {

@@ -17,7 +17,7 @@
 }
 
 .MainBox_Select{
-	height: calc(100vh - 20px);
+	height: 115vh;
 	transition: .75s;
 }
 

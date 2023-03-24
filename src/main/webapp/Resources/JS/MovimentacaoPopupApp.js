@@ -16,5 +16,5 @@ popup.addEventListener('click', (element)=>{
 })
 
 function CallMovimentacaoTRN(type){
-	location.href = link+"?User="+param.get("User")+"&Account="+param.get("Account")+"&Action="+type;
+	location.href = link+"?User="+param.get("User")+"&Account="+param.get("Account")+"&Action=TRNOpen&Method="+type;
 }

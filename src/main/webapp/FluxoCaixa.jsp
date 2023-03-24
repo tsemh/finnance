@@ -1,6 +1,6 @@
 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <section class="MainBox">
 
@@ -26,7 +26,7 @@
 				</div>
 				<c:forEach var="Receita" items="${Receitas}">
 					<div class="Movement_Details Hide">
-						<p class="Movement_Title">Nome</p>
+						<p class="Movement_Title"><fmt:formatDate pattern="dd/MM/yyyy" value="${Receita.dt_movimentacao.getTime()}"/></p>
 						<p class="Movement_Value Green"><fmt:formatNumber value="${Receita.vl_movimentacao}" type="currency" /></p>
 					</div>
 				</c:forEach>
@@ -49,7 +49,7 @@
 				</div>
 				<c:forEach var="Despesa" items="${Despesas}">
 					<div class="Movement_Details Hide">
-						<p class="Movement_Title">Nome</p>
+						<p class="Movement_Title"><fmt:formatDate pattern="dd/MM/yyyy" value="${Despesa.dt_movimentacao.getTime()}"/></p>
 						<p class="Movement_Value Red"><fmt:formatNumber value="${Despesa.vl_movimentacao}" type="currency" /></p>
 					</div>
 				</c:forEach>
@@ -71,7 +71,7 @@
 		</div>
 	</div>
 
-	<a href="ServletMovimentacao?User=${param.User}&Account=${param.Account}&Action=Show" style="text-decoration: none;">
+	<a onclick="CallNaoDisponivel()" style="text-decoration: none;">
 		<button class="Values_ButtonHistory Hide" style='${(Msg.size() > 0) ? "display: none;" : ""}'>
 				Histórico
 		</button>

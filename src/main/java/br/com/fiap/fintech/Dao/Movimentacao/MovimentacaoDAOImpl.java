@@ -77,7 +77,13 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 			
 			pstmt.setInt   (1, movimentacao.getCd_usuario());
 			pstmt.setInt   (2, movimentacao.getCd_conta());
-			pstmt.setInt   (3, movimentacao.getCategoria().getCd_categoria());
+
+			if (movimentacao.getCategoria() != null) {
+				pstmt.setInt(3, movimentacao.getCategoria().getCd_categoria());
+			} else {
+				pstmt.setNull(3, 0);
+			}
+			
 			pstmt.setDate  (4, new java.sql.Date(movimentacao.getDt_movimentacao().getTimeInMillis()));
 			pstmt.setDouble(5, movimentacao.getVl_movimentacao());
 			pstmt.setString(6, movimentacao.getTp_movimentacao());
@@ -188,13 +194,18 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 		try {
 			
 			conexao = ConnectionManager.getInstance().getConnection();
-			pstmt = conexao.prepareStatement("UPDATE T_FIN_MOVIMENTACAO SET T_FIN_CD_CATEGORIA = ?,"
+			pstmt = conexao.prepareStatement("UPDATE T_FIN_MOVIMENTACAO SET T_FIN_CATEGORIA_CD_CATEGORIA = ?,"
 																		  +"DT_MOVIMENTACAO    = ?,"
 																		  +"VL_MOVIMENTACAO	   = ?,"
 																		  +"TP_MOVIMENTACAO    = ? "
-											+"WHERE T_FIN_USUARIO_CD_USUARIO = ? AND T_FIN_CONTA_USUARIO_CD_CONTA = ? AND CD_MOVIMENTACAO = ?");
+											+"WHERE T_FIN_CONTA_USUARIO_CD_USUARIO = ? AND T_FIN_CONTA_USUARIO_CD_CONTA = ? AND CD_MOVIMENTACAO = ?");
 			
-			pstmt.setInt   (1, movimentacao.getCategoria().getCd_categoria());
+			if (movimentacao.getCategoria() != null) {
+				pstmt.setInt(1, movimentacao.getCategoria().getCd_categoria());
+			} else {
+				pstmt.setNull(1, 0);
+			}
+			
 			pstmt.setDate  (2, new java.sql.Date(movimentacao.getDt_movimentacao().getTimeInMillis()));
 			pstmt.setDouble(3, movimentacao.getVl_movimentacao());
 			pstmt.setString(4, movimentacao.getTp_movimentacao());
@@ -219,7 +230,7 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 	}
 	
 	@Override
-	public void deleteByID(Integer cd_movimentacao, ContaUsuario conta) {
+	public void deleteByID(Integer cd_usuario, Integer cd_conta, Integer cd_movimentacao) {
 
 		try {
 			
@@ -227,8 +238,8 @@ public class MovimentacaoDAOImpl implements MovimentacaoDAO	{
 			pstmt = conexao.prepareStatement("DELETE FROM T_FIN_MOVIMENTACAO "
 											+"WHERE T_FIN_USUARIO_CD_USUARIO = ? AND T_FIN_CONTA_USUARIO_CD_CONTA = ? AND CD_MOVIMENTACAO = ?");
 			
-			pstmt.setInt(1, conta.getCd_usuario());
-			pstmt.setInt(2, conta.getCd_conta());
+			pstmt.setInt(1, cd_usuario);
+			pstmt.setInt(2, cd_conta);
 			pstmt.setInt(3, cd_movimentacao);
 			
 			pstmt.executeUpdate();
